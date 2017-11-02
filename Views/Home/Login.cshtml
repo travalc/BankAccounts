@@ -1,0 +1,18 @@
+@model BankAccounts.Models.LoginViewModel
+
+<h2>Login</h2>
+@{
+    if (TempData["loginError"] != null)
+    {
+        <p>@TempData["loginError"]</p>
+    }
+}
+<form asp-controller="Home" asp-action="Login" method="POST">  
+    <span asp-validation-for="email"></span>
+    <label asp-for="email">Email:</label>
+    <input asp-for="email" class="form-control"/>  
+    <span asp-validation-for="password"></span>
+    <label asp-for="password">Password:</label>
+    <input asp-for="password" class="form-control"/>
+    <input type="submit" value="Login" class="btn-primary">
+</form>

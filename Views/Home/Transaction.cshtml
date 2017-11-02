@@ -1,0 +1,15 @@
+@model BankAccounts.Models.TransactionViewModel
+<h2>Enter a Deposit or Withdrawal Amount</h2>
+@{
+    if (TempData["transactionError"] != null)
+    {
+        <p>@TempData["transactionError"]</p>
+    }
+}
+<form asp-controller="Home" asp-action="Transaction" method="POST">  
+    <input type="hidden" asp-for="accounts_id" value=@Model.accounts_id/>
+    <span asp-validation-for="amount"></span>
+    <label asp-for="amount">Amount</label>
+    <input asp-for="amount" class="form-control">
+    <input type="submit" value="Submit" class="btn-success">
+</form>
